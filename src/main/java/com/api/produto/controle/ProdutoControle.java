@@ -3,6 +3,7 @@ package com.api.produto.controle;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,5 +33,10 @@ public class ProdutoControle {
 		return acoes.save(produto); //o save pede um ProdMod do tipo produto
 	}
 	
-
+	// Filtrar Produtos
+	//Metodo para filtrar dados com o @Pathvariable
+	@RequestMapping(value="/produtos/{codigo}", method=RequestMethod.GET) //pode ser "id" ou "codigo", ou qualquer outro nome
+	public @ResponseBody ProdutoModelo filtrar(@PathVariable Integer codigo) {
+		return acoes.findByCodigo(codigo);
+	}
 }
