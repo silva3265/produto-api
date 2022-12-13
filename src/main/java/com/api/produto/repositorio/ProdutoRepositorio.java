@@ -6,6 +6,8 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.api.produto.modelo.ProdutoModelo;
 
+//Nessa Classe "ProdutoRepositorio" é que temos os metodos para (findAll, save, findByCodigo, delete)
+
 public interface ProdutoRepositorio extends CrudRepository<ProdutoModelo, Integer>{
 	
 	// Listar Todos os produtos
