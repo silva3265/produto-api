@@ -39,4 +39,19 @@ public class ProdutoControle {
 	public @ResponseBody ProdutoModelo filtrar(@PathVariable Integer codigo) {
 		return acoes.findByCodigo(codigo);
 	}
+	
+	// Alterar produto
+	// o save pode ser utilizado para cadastro ou para alteração, a unica coisa que muda é a requisição (POST para PUT)
+	@RequestMapping(value="/produtos", method=RequestMethod.PUT) //
+	public @ResponseBody ProdutoModelo alterar(@RequestBody ProdutoModelo produto) {
+		return acoes.save(produto);
+	}
+	
+	
 }
+
+
+
+
+
+
